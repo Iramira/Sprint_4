@@ -4,12 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.EnvConfig;
 
 import java.time.Duration;
+
+import static org.junit.Assert.assertTrue;
 
 public class MainPage {
     private final WebDriver driver;
@@ -33,7 +34,7 @@ public class MainPage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[alt='Not found']")));
 
-        assert driver.findElement(By.cssSelector("[alt='Not found']")).isDisplayed();
+        assertTrue(driver.findElement(By.cssSelector("[alt='Not found']")).isDisplayed());
     }
 
     public StatusPage clickOnGo() {

@@ -8,6 +8,8 @@ import praktikum.EnvConfig;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertTrue;
+
 public class StatusPage {
 
     private final WebDriver driver;
@@ -21,7 +23,7 @@ public class StatusPage {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(notFoundImage));
 
-        assert driver.findElement(notFoundImage).isDisplayed();
+        assertTrue(driver.findElement(notFoundImage).isDisplayed());
 
         return this;
     }

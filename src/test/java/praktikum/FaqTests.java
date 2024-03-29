@@ -1,34 +1,23 @@
 package praktikum;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.pages.MainPage;
-
-import java.time.Duration;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 
-public class FAQTest {
-    private static WebDriver driver;
-
+public class FaqTests {
     private static MainPage mainPage;
     private final String description;
     private final int questionNumber;
 
-    public FAQTest(int questionNumber,String description) {
+    public FaqTests(int questionNumber, String description) {
         this.questionNumber = questionNumber;
         this.description = description;
     }
@@ -51,9 +40,7 @@ public class FAQTest {
     }
     @Before
     public void init() {
-
-        driver = driverRule.getDriver();
-        mainPage = new MainPage(driver);
+        mainPage = new MainPage(driverRule.getDriver());
         mainPage.open();
     }
     @Test
@@ -62,13 +49,6 @@ public class FAQTest {
         mainPage.clickFaqQuestion(questionNumber);
         assertTrue(mainPage.isFaqAnswerDisplayed(questionNumber));
         assertEquals(description, mainPage.getAnswerText(questionNumber));
-    }
-
-
-    @After
-    public void teardown() {
-        // Закрой браузер
-        driver.quit();
     }
 }
 

@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,10 +6,27 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static praktikum.Locators.*;
 
 public class RentPage {
     private WebDriver driver;
+    public final By fieldDeliveryDate = By.cssSelector(".Order_MixedDatePicker__3qiay .Input_Input__1iN_Z");
+    //Поле когда привезти самокат
+
+    public final By fieldOfRentalPeriod = By.className("Dropdown-arrow");
+    // Локатор списка "Срок аренды" на странице "Про аренду"
+
+    public final By listOfRentalPeriod = By.className("Dropdown-option");
+    // Локатор поля "Комментарий" на странице "Про аренду"
+
+    public final By fieldComment = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/input");
+    // Локатор кнопки "Заказать" на странице "Про аренду"
+
+    public final By buttonMakeAnOrder = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button[2]");
+    // Локатор кнопки "Да" в модальном окне "Хотите сделать заказ?"
+
+    public final By buttonYes = By.xpath("//*[@id=\"root\"]/div/div[2]/div[5]/div[2]/button[2]");
+    // Локатор модального окна "Заказ оформлен"
+
     public RentPage(WebDriver driver) {
         this.driver = driver;
     }

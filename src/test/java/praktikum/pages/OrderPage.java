@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,12 +9,37 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static praktikum.Locators.*;
-
 public class OrderPage {
     private WebDriver driver;
 
     // Локатор
+    public final By fieldDeliveryDate = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[1]/div/input");
+
+    public final By fieldFirstName = By.xpath(".//input[@placeholder = '* Имя']");
+    // Локатор поля "Имя" на странице "Для кого самокат"
+
+    public final By fieldLastName = By.xpath(".//input[@placeholder = '* Фамилия']");
+    // Локатор поля "Фамилия" на странице "Для кого самокат"
+
+    public final By fieldAddress = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
+    // Локатор поля "Адрес" на странице "Для кого самокат"
+
+    public final By fieldMetroStation = By.className("select-search__input");
+    // Локатор поля "Станция метро" на странице "Для кого самокат"
+
+    private By metroStation  = By.xpath(".//input[@placeholder = '* Станция метро']");
+    //Выпадающий список метро
+
+    public final By fieldPhoneNumber = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
+    // Локатор поля "Телефон" на странице "Для кого самокат"
+
+    public final By buttonNext = By.cssSelector(".Order_NextButton__1_rCA .Button_Button__ra12g");
+    // Локатор кнопки "Далее" на странице "Для кого самокат"
+
+    public final By listOfMetroStation = By.className("select-search__row");
+    // Локатор кнопки "Далее" на странице "Для кого самокат"
+
+    public final By buttonCheckStatus = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;

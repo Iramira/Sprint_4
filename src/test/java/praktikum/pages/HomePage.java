@@ -1,21 +1,16 @@
-package praktikum;
+package praktikum.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.util.List;
-
-
-import static praktikum.Locators.buttonOrderInMiddle;
+;
 
 
 public class HomePage {
-    private static WebDriver driver;
+    private WebDriver driver;
+    private final By buttonOrderInMiddle = By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button");
 
     // Локатор
     public HomePage(WebDriver driver) {
