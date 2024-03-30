@@ -13,7 +13,14 @@ public class OrderPage {
     private WebDriver driver;
 
     // Локатор
-    public final By fieldDeliveryDate = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[1]/div/input");
+    public final By fieldDeliveryDate = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
+    //Поле когда привезти самокат
+
+    public static final By BUTTON_ORDER_IN_HEADER = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
+    // Локатор кнопки "Заказать" в header страницы
+
+    /** Локатор кнопки "Заказать" в центре страницы */
+    public static final By BUTTON_ORDER_IN_BODY = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
 
     public final By fieldFirstName = By.xpath(".//input[@placeholder = '* Имя']");
     // Локатор поля "Имя" на странице "Для кого самокат"
@@ -24,11 +31,8 @@ public class OrderPage {
     public final By fieldAddress = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
     // Локатор поля "Адрес" на странице "Для кого самокат"
 
+    /** Локатор поля "Станция метро" на странице "Для кого самокат" */
     public final By fieldMetroStation = By.className("select-search__input");
-    // Локатор поля "Станция метро" на странице "Для кого самокат"
-
-    private By metroStation  = By.xpath(".//input[@placeholder = '* Станция метро']");
-    //Выпадающий список метро
 
     public final By fieldPhoneNumber = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     // Локатор поля "Телефон" на странице "Для кого самокат"
@@ -70,8 +74,8 @@ public class OrderPage {
     public void clickOnNextButton() {
         driver.findElement(buttonNext).click();
     }
-    public void createOrder (By button,String firstName, String lastName, String address, String metroStation, String phoneNumber) {
-        clickOnMakeOrderButton(button);
+    public void createOrder (boolean isHeader,String firstName, String lastName, String address, String metroStation, String phoneNumber) {
+        clickOnMakeOrderButton(isHeader ? BUTTON_ORDER_IN_HEADER : BUTTON_ORDER_IN_BODY);
         setFirstName(firstName);
         setLastName(lastName);
         setAddress(address);
